@@ -18,6 +18,9 @@ import java.util.Scanner;
  */
 public class MovieDownloader {
 
+	/**
+	*	returns a string array of the json of the found movies from the inputted data
+	*/
 	public static String[] downloadMovieData(String movie) {
 
 		//construct the url for the omdbapi API
@@ -32,14 +35,14 @@ public class MovieDownloader {
 		BufferedReader reader = null;
 
 		String movies[] = null;
-
+		// try to achieve connection with the API
 		try {
 
 			URL url = new URL(urlString);
 
 			urlConnection = (HttpURLConnection) url.openConnection();
-			urlConnection.setRequestMethod("GET");
-			urlConnection.connect();
+			urlConnection.setRequestMethod("GET"); //Setting a get request
+			urlConnection.connect(); // connect
 
 			InputStream inputStream = urlConnection.getInputStream();
 			StringBuffer buffer = new StringBuffer();
